@@ -7,7 +7,8 @@
     <style>
         body { background-color: #05050a; color: #ffffff; font-family: monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
         #game-window { width: 640px; height: 480px; background-color: #000000; border: 4px solid #ff00ff; position: relative; overflow: hidden; box-shadow: 0 0 20px #ff00ff; }
-        #text-box { position: absolute; bottom: 20px; left: 20px; width: 592px; height: 120px; border: 3px solid #ffffff; background: #000; padding: 10px; box-sizing: border-box; font-size: 18px; color: #ff66cc; }
+        canvas { width: 100%; height: 320px; background: #080810; display: block; }
+        #text-box { position: absolute; bottom: 15px; left: 15px; width: 610px; height: 110px; border: 3px solid #ffffff; background: #000; padding: 10px; box-sizing: border-box; font-size: 16px; color: #ff66cc; }
         .btn-container { display: flex; gap: 10px; margin-top: 15px; }
         button { background: #000; color: #fff; border: 2px solid #fff; padding: 10px 20px; font-family: monospace; font-size: 16px; cursor: pointer; font-weight: bold; }
         button:hover { background: #ff66cc; color: #000; border-color: #ff66cc; }
@@ -15,12 +16,12 @@
 </head>
 <body>
 
-    <h1 style="color: #33ccff; letter-spacing: 2px;">GLYPH-3: UNDERLUST ENGINE</h1>
+    <h1 id="zone-title" style="color: #33ccff; letter-spacing: 2px; margin-bottom: 5px;">GLYPH-3: UNDERLUST ENGINE</h1>
     
     <div id="game-window">
-        <!-- Overworld view placeholder -->
-        <div id="zone-title" style="padding: 20px; font-size: 24px; text-align: center; color: #33ccff;">Loading game file...</div>
-        <div id="text-box">* A neon light flickers in the distance.</div>
+        <!-- The visual drawing layer for our maps and player -->
+        <canvas id="gameCanvas" width="640" height="320"></canvas>
+        <div id="text-box">* Use Arrow Keys to move. Walk to the right side of the screen to advance zones.</div>
     </div>
 
     <div class="btn-container">
